@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+
+    <!-- tab icon -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <!-- animation library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- bootstrap css file -->
+    <!-- using layers concept to make main css over write on bootstrap style -->
+    <style>
+        @import url('css/bootstrap.min.css') layer(bootstrap);
+    </style>
+
+    
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="css/all.min.css"/>
+
+    <!-- css file -->
+    <link rel="stylesheet" href="css/main.css"/>
+
+</head>
+
+<body>
+    <!-- loading page -->
+    <div id="loading" class=" position-fixed top-0 left-0 h-100 w-100 d-flex justify-content-center align-items-center">
+        <span class="loader"></span>
+     </div>
+
+    <!-- ==== side navbar ==== -->
+    <nav class="vh-100  position-fixed d-flex shadow-sm ">
+        
+        <div class="left-side text-white d-flex flex-column justify-content-between bg-black position-relative">
+            <div  id="navMenu">
+                <ul class="nav-links">
+                    <li class="nav-link cursor-pointer animate__animated animate__delay-2s" data-category="now_playing">Now playing</li>
+                    <li class="nav-link cursor-pointer animate__animated animate__delay-2s" data-category="popular">Popular</li>
+                    <li class="nav-link cursor-pointer animate__animated animate__delay-2s" data-category="top_rated">Top Rated</li>
+                    <li class="nav-link cursor-pointer animate__animated animate__delay-2s" data-category="trending">Trending</li>
+                    <li class="nav-link cursor-pointer animate__animated animate__delay-2s" data-category="upcoming">Upcoming</li>
+                    <li class=" cursor-pointer animate__animated animate__delay-2s"><a href="#contactUs">Contact Us</a> </li>
+                </ul>
+    
+            </div>
+            <div class="p-2" id="nav-footer">
+                <div class="nav-social ps-4 text-white">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                </div>
+    
+                <p class="text-white-50 p-3 pb-4">
+                    Copyright © 2022 All Rights Reserved. 
+                    <br>
+                    Created by 
+                    <a href="#" class="link-danger fw-bold" target="_blank">Lina Magdy</a>
+                </p>
+            </div>
+
+            <!-- close open icon -->
+            <div class="close-open-icon  text-black position-absolute">
+            </div>
+        </div>
+
+        <div class="right-side py-4 text-white-50 d-flex flex-column align-items-center justify-content-between bg-white" id="nav-icons">
+            <div class="nav-logo w-50">
+                <img class="w-100" src="./images/logo.png" alt="logo">
+            </div>
+    
+            <!-- === -->
+    
+            <div class="nav-share-icon text-black d-flex flex-column ">
+                <i class="fa-solid fa-globe p-1"></i>
+                <i class="fa-solid fa-share-nodes p-1"></i>
+            </div>
+            
+        </div>
+
+    </nav>
+
+    <!-- === main section === -->  
+    <section class="container pt-5" id="main">
+        
+            <input id="search" type="search" placeholder="Search"  class="form-control w-50 mx-auto bg-transparent rounded-pill text-white shadow-none border-white px-3"/>
+            
+            <div id="movies" class="pt-5">
+
+                <div class="row g-5" id="moviesData">
+                </div>
+
+            </div>
+        
+    </section>
+    
+    <!-- === contact section === -->
+    <section id="contactUs" class="container w-100 text-white py-5 text-white" >
+        <h1>Contact Us</h1>
+
+        <form>
+
+            <div class="row mt-3 text-white">
+
+                <div class="col-md-6">
+                    <input type="text" placeholder="Enter Your Name" class="form-control mt-4" id="nameInput" required/>
+                    <span id="Error" class="error animate__animated animate__fadeOutUp"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="email" placeholder="Enter Your Email" class="form-control mt-4" id="emailInput" required/>
+                    <span class="error animate__animated animate__fadeOutUp"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="number" placeholder="Enter Your Phone Number" class="form-control mt-4" id="phoneInput" required/>
+                    <span class="error animate__animated animate__fadeOutUp"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="number" placeholder="Enter Your Age" class="form-control mt-4" id="ageInput" required/>
+                    <span class="error animate__animated animate__fadeOutUp"></span>
+                </div>
+
+                <div class="col-md-6 position-relative">
+                    <input type="password" placeholder="Enter Your Password" class="form-control mt-4" id="passwordInput" required/>
+                    <span class="error animate__animated animate__fadeOutUp"></span>
+                    <span class="showPass animate__animated">
+                        <i data-show="show" class="fa-solid fa-eye-slash"></i>
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="password" placeholder="ReEnter Your Password" class="form-control mt-4" id="repasswordInput" required/>
+                    <span class="error"></span>
+                </div>
+
+            </div>
+            <!-- form Btn -->
+            <div class="col-md-12  mt-4">
+                <button type="submit" class="form-btn btn btn-outline-light  btn-lg border border-0 rounded-2 mb-3 animate__animated  ">Submit</button>
+            </div>
+
+        </form>
+
+    </section>
+    
+    <!-- go up arrow icon -->
+    <div id="goUpArrow" class=" position-fixed end-0 bottom-0">
+        <a href="#">
+            <i class="fa-solid fa-arrow-up-long fa-1x bg-black rounded-5 p-3"></i>
+        </a>
+    </div>
+
+
+
+
+
+
+    <!-- jquery file -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- main js file -->
+     <script src="js/index.js" type="module"></script>
+</body>
+</html>
